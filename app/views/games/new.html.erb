@@ -1,0 +1,17 @@
+
+
+
+<ul class="letters">
+<% @letters.each do |letter| %>
+  <li><b><%= letter %></b></li>
+<% end %>
+</ul>
+
+<hr>
+
+<form action="/score" method="post">
+  <input type="text" name="word">
+  <input type="submit">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letter_grid, @letters.join('') %>
+</form>
